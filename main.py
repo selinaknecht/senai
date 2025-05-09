@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
-
-app = Flask(__name__)
+import os
+# Define a pasta onde estão os arquivos HTML (neste caso, a raiz do projeto)
+template_dir = os.path.abspath(os.path.dirname(__file__))
+app = Flask(__name__, template_folder=template_dir)
 
 @app.route("/")
 def home():
@@ -32,4 +34,4 @@ def calculadora():
     return render_template("calculadora.html", resultado=resultado)
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=3000)
