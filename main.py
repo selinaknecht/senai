@@ -33,5 +33,20 @@ def calculadora():
 
     return render_template("calculadora.html", resultado=resultado)
 
+@app.route("/notas", methods=["GET", "POST"])
+def notas():
+    resultado = None
+    if request.method == "POST":
+        try:
+            nota1 = float(request.form["num1"])
+            nota2 = float(request.form["num2"])
+            nota3 = float(request.form["num3"])
+            nota4 = float(request.form["num4"])
+            resultado = (nota1 + nota2 + nota3 + nota4) / 4
+        except:
+            resultado = "Erro nos dados fornecidos"
+
+    return render_template("notas.html", resultado=resultado)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)

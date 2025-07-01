@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>Média</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Média</h1>
+    <p>Calcule a média das 4 notas dos alunos</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/notas">Notas de Alunos</a></li>
+    </ul>
+</nav>
+
+<section>
+    <form method="POST">
+        <label>Nota 1:</label><br>
+        <input type="number" name="num1" step="any" required><br><br>
+        <label>Nota 2:</label><br>
+        <input type="number" name="num2" step="any" required><br><br>
+        <label>Nota 3:</label><br>
+        <input type="number" name="num3" step="any" required><br><br>
+        <label>Nota 4:</label><br>                
+        <input type="number" name="num4" step="any" required><br><br>
+        
+
+        <button type="submit">Verificar</button>
+    </form>
+
+    {% if resultado is not none %}
+        <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
+</section>
+
+</body>
+</html>
