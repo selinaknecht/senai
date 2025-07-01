@@ -48,5 +48,21 @@ def notas():
 
     return render_template("notas.html", resultado=resultado)
 
+@app.route("/converter", methods=["GET", "POST"])
+def converter():
+    resultado = None
+    if request.method == "POST":
+        try:
+            num1 = float(request.form["num1"])
+            operacao = request.form["operacao"]
+            if operacao == "celsius":
+                resultado = (num1 * 9/5) + 32
+            elif operacao == "fahrenheit":
+                resultado = (num1 - 32) * 5/9
+        except:
+            resultado = "Erro nos dados fornecidos"
+
+    return render_template("converter.html", resultado=resultado)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)

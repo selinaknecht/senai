@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <title>Converter graus F° para C°</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Calculadora de Temperatura</h1>
+    <p>Converta graus F° para C°</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/">Início</a></li>
+        <li><a href="/converter">Calculadora de Temperatura</a></li>
+    </ul>
+</nav>
+
+<section>
+    <form method="POST">
+        <label>Número 1:</label><br>
+        <input type="number" name="num1" step="any" required><br><br>
+
+        <label>Operação:</label><br>
+        <select name="operacao">
+            <option value="celsius">Fahrenheit para Celsius</option>
+            <option value="fahrenheit">Celsius para Fahrenheit</option>
+        </select><br><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if resultado is not none %}
+        <h2>Resultado: {{ resultado }}</h2>
+    {% endif %}
+</section>
+
+</body>
+</html>
