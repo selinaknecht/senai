@@ -55,9 +55,9 @@ def converter():
         try:
             num1 = float(request.form["num1"])
             operacao = request.form["operacao"]
-            if operacao == "celsius":
+            if operacao == "fahrenheit":
                 resultado = (num1 * 9/5) + 32
-            elif operacao == "fahrenheit":
+            elif operacao == "celsius":
                 resultado = (num1 - 32) * 5/9
         except:
             resultado = "Erro nos dados fornecidos"
