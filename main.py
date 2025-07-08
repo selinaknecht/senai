@@ -64,5 +64,18 @@ def converter():
 
     return render_template("converter.html", resultado=resultado)
 
+@app.route("/area", methods=["GET", "POST"])
+def area():
+    resultado = None
+    if request.method == "POST":
+        try:
+            num1 = float(request.form["num1"])  
+            resultado =(num1 * 4)  
+             
+        except:
+            resultado = "Erro nos dados fornecidos"
+
+    return render_template("area.html", resultado=resultado)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=3000)
